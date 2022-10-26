@@ -1,0 +1,25 @@
+<h1>Articles#index</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Invoice Date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |invoice| %>
+      <tr>
+        <th scope="row"><%= invoice.created_at.strftime('%d/%m/%Y') %></th>
+        <td><%= invoice.name %></td>
+        <td><%= invoice.description %></td>
+        <td><%= invoice.price %></td>
+        <td><%= invoice.qty %></td>
+        <td><%= link_to 'View', invoice_path(invoice) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

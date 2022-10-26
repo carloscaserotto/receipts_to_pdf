@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Discount (%)</th>
+      <th scope="col">VAT (%)</th>
+      <th scope="col">TOTAL</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoice_items.each do |invoice| %>
+      <tr>
+        <th scope="row"><%= invoice.created_at.strftime('%d/%m/%Y') %></th>
+        <td><%= invoice.name %></td>
+        <td><%= invoice.description %></td>
+        <td><%= invoice.price %></td>
+        <td><%= invoice.qty %></td>
+        <td><%= link_to 'View', invoice_path(invoice) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
